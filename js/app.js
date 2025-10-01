@@ -24,15 +24,27 @@ button.addEventListener("click", function (event) {
 
 // 金加算関数 -- Yen counting function
 function checkAnswer() {
-    if (answer.value === "manabu" || answer.value === "まなぶ") {
-        result.innerHTML = "正解！ / Correct!";
-        yen += 100;
+    for (let i = 0; i < word.kotai.length; i++) {
+        if (answer.value === word.kotai[i]) {
+            result.innerHTML = "正解！ / Correct!";
+            yen += 100;
+            money.innerHTML = `
+            <p>金/Money:  ${yen}円/yen</p>
+            `;
+            return true;
+        }
     }
-    else {
-        result.innerHTML = "不正解！ / Incorrect!";
-        return false;
-    }
+    result.innerHTML = "不正解！ / Incorrect!";
     money.innerHTML = `
     <p>金/Money:  ${yen}円/yen</p>
-    `
+    `;
+    return false;
+}
+
+// "Word"としてオブジェクトを作成 -- Create "Word" object
+const word = {
+    id: 1,
+    kotoba: "学ぶ",
+    kotai: ["まなぶ", "manabu"],
+    honyaku: "Study"
 }
