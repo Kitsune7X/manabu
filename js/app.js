@@ -3,6 +3,24 @@ const result = document.getElementById("result");
 const button = document.getElementById("button");
 const money = document.getElementById("money");
 
+// "Word"としてオブジェクトを作成 -- Create "Word" object
+// const word = {
+//     id: 1,
+//     kotoba: "学ぶ",
+//     kotai: ["まなぶ", "manabu"],
+//     honyaku: "Study"
+// }
+
+const word = {
+    id: 1,
+    kotoba: "狐",
+    kotai: ["きつね", "kitsune"],
+    honyaku: "Fox"
+}
+
+const text = document.querySelector(".word-display");
+text.innerHTML = `<h1>${word.kotoba}</h1>`;
+
 let yen = 0;
 
 money.innerHTML = `
@@ -41,10 +59,4 @@ function checkAnswer() {
     return false;
 }
 
-// "Word"としてオブジェクトを作成 -- Create "Word" object
-const word = {
-    id: 1,
-    kotoba: "学ぶ",
-    kotai: ["まなぶ", "manabu"],
-    honyaku: "Study"
-}
+console.log(word.kotoba);
